@@ -85,3 +85,73 @@ let chessboard = "";
    chessboard += "\n";
  }
 console.log(chessboard);
+
+//Chapter 3
+//Functions
+
+//1.Minimum
+function min(firstNumber,secondNumber)
+{
+  return Math.min(firstNumber,secondNumber);
+}
+
+console.log(min(0, 10));
+// → 0
+console.log(min(0, -10));
+// → -10
+
+//2. Recursion
+function isEven(number)
+{
+  if(number == 0)
+  {
+    return true;
+  }
+  else if (number == 1)
+  {
+    return false;
+  }
+  else 
+  {
+    return isEven(number - 2)
+  }
+}
+
+console.log(isEven(50));
+// → true
+console.log(isEven(75));
+// → false
+console.log(isEven(-1));
+// → ??
+
+//3.Bean counting
+function countBs(word)
+{
+  let count = 0;
+  for(let n = 0; n <= word.length - 1; n++)
+  {
+    if(word[n] == "B")
+    {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countBs("BBC"));
+// → 2
+
+function countChar(word,char)
+{
+  let count = 0;
+  for(let n = 0; n <= word.length - 1; n++)
+  {
+    if(word[n] == char)
+    {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countChar("kakkerlak", "k"));
+// → 4
