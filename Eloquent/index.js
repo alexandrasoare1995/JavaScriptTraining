@@ -155,3 +155,68 @@ function countChar(word,char)
 }
 console.log(countChar("kakkerlak", "k"));
 // → 4
+
+//Chapter 4
+//Data Structures: Objects and Arrays
+//1.The sum of a range
+function range(start,end)
+{
+  let sequence = [];
+  for(let i = start; i <= end; i++)
+  {
+    sequence.push(i);
+  }
+  return sequence;
+}
+
+function sum(range)
+{
+  let total = 0;
+  for(let number of range)
+  {
+    total += number;
+  }
+  return total;
+}
+function range(start,end,range)
+{
+  let sequence = [];
+  for(let i = start; i <= end; i+= range)
+  {
+    sequence.push(i);
+  }
+  for(let i = start; i >= end; i+= range)
+  {
+    sequence.push(i);
+  }
+  return sequence;
+}
+console.log(range(1, 10));
+// → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(range(5, 2, -1));
+// → [5, 4, 3, 2]
+console.log(sum(range(1, 10)));
+// → 55
+
+//2.Reversing an array
+function reverseArray(sequence)
+{
+  let reverseSequence = [];
+  for(let i = sequence.length - 1; i >= 0; i--)
+  {
+    reverseSequence.push(sequence[i]);
+  }
+  return reverseSequence;
+}
+function reverseArrayInPlace(arrayValue)
+{
+  return reverseArray(arrayValue);
+}
+console.log(reverseArray(["A", "B", "C"]));
+// → ["C", "B", "A"];
+let arrayValue = [1, 2, 3, 4, 5];
+console.log(reverseArrayInPlace(arrayValue));
+//console.log(arrayValue);
+// → [5, 4, 3, 2, 1]
+
+//3.A list
