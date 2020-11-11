@@ -293,3 +293,56 @@ console.log(deepEqual(obj, {here: 1, object: 2}));
 // → false
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
+
+//Chapter 5
+//1.Flattening
+let arrays = [[1, 2, 3], [4, 5], [6]];
+
+function Flatten(arrays)
+{
+  return arrays.reduce(function(firstArray,secondArray) {return firstArray.concat(secondArray)},[]);
+}
+
+console.log(Flatten(arrays))
+// → [1, 2, 3, 4, 5, 6]
+
+
+//2.Your own loop
+function loop(currentValue, test, update, logFunction)
+{
+  for (let value = currentValue; test(value); value = update(value))
+  {
+    logFunction(value);
+  }
+}
+
+loop(3, n => n > 0, n => n - 1, console.log);
+// → 3
+// → 2
+// → 1
+
+//3.Everything
+function every(array, test) {
+  // Your code here.
+  for(let number in array)
+  {
+    if(!test(number))
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+}
+function every(array, test)
+{
+  return !array.some(number => !test(number));
+}
+console.log(every([1, 3, 5], n => n < 10));
+// → true
+console.log(every([2, 4, 16], n => n < 10));
+// → false
+console.log(every([], n => n < 10));
+// → true
